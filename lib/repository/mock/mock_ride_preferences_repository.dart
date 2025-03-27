@@ -1,18 +1,22 @@
+// repository/mock/mock_ride_preferences_repository.dart
+import 'dart:async';
 import '../../model/ride/ride_pref.dart';
 import '../ride_preferences_repository.dart';
 
-import '../../dummy_data/dummy_data.dart';
-
-class MockRidePreferencesRepository extends RidePreferencesRepository {
-  final List<RidePreference> _pastPreferences = fakeRidePrefs;
+class MockRidePreferencesRepository implements RidePreferencesRepository {
+  final List<RidePreference> _preferences = [];
 
   @override
-  List<RidePreference> getPastPreferences() {
-    return _pastPreferences;
+  Future<List<RidePreference>> getPastPreferences() async {
+    // Simulate network delay
+    await Future.delayed(Duration(seconds: 2));
+    return _preferences;
   }
 
   @override
-  void addPreference(RidePreference preference) {
-    _pastPreferences.add(preference);
+  Future<void> addPreference(RidePreference preference) async {
+    // Simulate network delay
+    await Future.delayed(Duration(seconds: 1));
+    _preferences.add(preference);
   }
 }

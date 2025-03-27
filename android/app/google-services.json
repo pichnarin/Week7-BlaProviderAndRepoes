@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "412279854118",
+    "project_id": "pizzasprintnotification",
+    "storage_bucket": "pizzasprintnotification.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412279854118:android:a40f18e02f5443142202e7",
+        "android_client_info": {
+          "package_name": "com.example.frontend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412279854118-a445it66lt1ost2pg7sjl0ls7b99eua4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.frontend",
+            "certificate_hash": "c020dea6017560e2168f47b3be3733abfcdbacb1"
+          }
+        },
+        {
+          "client_id": "412279854118-3mtqpa6434q452khva4m2hg5cbps7v01.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbctx-1rArQxLRxih2oZgnC_5v0wdPhqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "412279854118-3mtqpa6434q452khva4m2hg5cbps7v01.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

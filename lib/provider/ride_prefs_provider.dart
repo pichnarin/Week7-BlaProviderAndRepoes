@@ -1,50 +1,53 @@
+// provider/rides_preferences_provider.dart
 import 'package:flutter/material.dart';
 import '../model/location/locations.dart';
 import '../model/ride/ride_pref.dart';
 import '../repository/mock/mock_ride_preferences_repository.dart';
 import '../repository/ride_preferences_repository.dart';
-
+import 'asynv_value.dart';
 
 class RidesPreferencesProvider extends ChangeNotifier {
   final RidePreferencesRepository repository;
   RidePreference? _currentPreference;
-  List<RidePreference> _preferencesHistory = [];
+  late AsyncValue<List<RidePreference>> pastPreferences;
 
-  // Constructor to inject the repository
   RidesPreferencesProvider(this.repository) {
     _initializePreferences();
   }
 
-  // Getter for current preference
   RidePreference? get currentPreference => _currentPreference;
 
-  // Getter for preferences history (from newest to oldest)
-  List<RidePreference> get preferencesHistory => List.unmodifiable(_preferencesHistory);
-
-  // Set the current preference
-  void setCurrentPreference(RidePreference newPreference) {
-    if (newPreference != _currentPreference) {
-      _currentPreference = newPreference;
-
-      if (!_preferencesHistory.contains(newPreference)) {
-        _preferencesHistory.insert(0, newPreference);
-      }
-
-      repository.addPreference(newPreference);
-
-      notifyListeners();
-    }
+  Future<void> _initializePreferences() async {
+    await fetchPastPreferences();
   }
 
-  // Initialize preferences by loading past preferences from the repository
-  void _initializePreferences() {
-    _preferencesHistory = repository.getPastPreferences();
-    if (_preferencesHistory.isNotEmpty) {
-      _currentPreference = _preferencesHistory.first;
+  Future<void> fetchPastPreferences() async {
+    pastPreferences = AsyncValue.loading(); // Set to loading initially
+    notifyListeners();
+    try {
+      List<RidePreference> pastPrefs = await repository.getPastPreferences();
+      pastPreferences = AsyncValue.data(pastPrefs); // Update with fetched data
+    } catch (error) {
+      pastPreferences = AsyncValue.error(error.toString()); // Set error if something goes wrong
     }
     notifyListeners();
   }
+
+
+  Future<void> addPreference(RidePreference preference) async {
+    await repository.addPreference(preference);
+    await fetchPastPreferences();
+  }
+
+  void setCurrentPreference(RidePreference newPreference) {
+    if (newPreference != _currentPreference) {
+      _currentPreference = newPreference;
+      addPreference(newPreference);
+      notifyListeners();
+    }
+  }
 }
+
 
 
 void main() {
@@ -71,6 +74,6 @@ void main() {
 
   // Access the current preference and history
   print(ridesPreferencesProvider.currentPreference);
-  print(ridesPreferencesProvider.preferencesHistory);
+  print(ridesPreferencesProvider.pastPreferences);
 }
 
