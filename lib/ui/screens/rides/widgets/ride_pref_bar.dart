@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../model/ride/ride_pref.dart';
+import '../../../../data/model/ride/ride_pref.dart';
 import '../../../theme/theme.dart';
 import '../../../../utils/date_time_util.dart';
 import '../../../widgets/actions/bla_text_button.dart';

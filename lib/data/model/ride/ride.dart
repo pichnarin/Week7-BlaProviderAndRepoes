@@ -1,6 +1,5 @@
+import '../../../utils/date_time_util.dart';
 import '../location/locations.dart';
-
-import '../../utils/date_time_util.dart';
 import '../user/user.dart';
 
 enum RideStatus { created, published, ongoing, finished }

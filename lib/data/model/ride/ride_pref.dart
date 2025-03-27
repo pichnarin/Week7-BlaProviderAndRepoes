@@ -43,4 +43,17 @@ class RidePreference {
     requestedSeats.hashCode;
   }
 
+  Map<String, dynamic> toJson() => {
+    'departure': departure.toJson(),
+    'departureDate': departureDate.toIso8601String(),
+    'arrival': arrival.toJson(),
+    'requestedSeats': requestedSeats,
+  };
+
+  factory RidePreference.fromJson(Map<String, dynamic> json) => RidePreference(
+    departure: Location.fromJson(json['departure']),
+    departureDate: DateTime.parse(json['departureDate']),
+    arrival: Location.fromJson(json['arrival']),
+    requestedSeats: json['requestedSeats'],
+  );
 }

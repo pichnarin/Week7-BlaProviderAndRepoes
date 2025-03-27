@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-  import '../../../../model/location/locations.dart';
-  import '../../../../model/ride/ride_pref.dart';
+  import '../../../../data/model/location/locations.dart';
+import '../../../../data/model/ride/ride_pref.dart';
   import '../../../theme/theme.dart';
   import '../../../../utils/animations_util.dart';
   import '../../../../utils/date_time_util.dart';

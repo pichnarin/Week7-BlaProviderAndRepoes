@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../data/model/ride/ride_pref.dart';
 import '../../../widgets/actions/bla_icon_button.dart';
-
-import '../../../../model/ride/ride_pref.dart';
 import '../../../theme/theme.dart';
 import '../../ride_pref/widgets/ride_pref_form.dart';
 

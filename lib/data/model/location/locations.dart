@@ -39,4 +39,23 @@ class Location {
   String toString() {
     return name;
   }
+
+  Map<String, dynamic> toJson() => {
+    'name': name,
+    'country': country.name,
+
+  };
+
+  factory Location.fromJson(Map<String, dynamic> json) => Location(
+    name: json['name'],
+    country: json['country'] == 'france'
+        ? Country.france
+        : json['country'] == 'uk'
+        ? Country.uk
+        : json['country'] == 'cambodia'
+        ? Country.cambodia
+        : json['country'] == 'spain'
+        ? Country.spain
+        : throw Exception("Unknown country ${json['country']}"),
+  );
 }

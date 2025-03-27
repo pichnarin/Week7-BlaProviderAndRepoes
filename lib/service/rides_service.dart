@@ -1,8 +1,8 @@
-import 'package:week_3_blabla_project/model/ride/ride_filter.dart';
-import 'package:week_3_blabla_project/model/ride/ride_pref.dart';
-import 'package:week_3_blabla_project/repository/rides_repository.dart';
 
-import '../model/ride/ride.dart';
+import '../data/model/ride/ride.dart';
+import '../data/model/ride/ride_filter.dart';
+import '../data/model/ride/ride_pref.dart';
+import '../data/repository/rides_repository.dart';
 
 ////
 ///   This service handles:

@@ -1,8 +1,9 @@
-import '../model/location/locations.dart';
-import '../model/ride/ride.dart';
-import '../model/ride/ride_pref.dart';
-import '../model/user/user.dart';
+import '../data/model/location/locations.dart';
 import 'dart:math';
+
+import '../data/model/ride/ride.dart';
+import '../data/model/ride/ride_pref.dart';
+import '../data/model/user/user.dart';
 
 final Random random = Random();
 

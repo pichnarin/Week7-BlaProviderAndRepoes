@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../model/ride/ride.dart';
-
+import '../../../../data/model/ride/ride.dart';
 import '../../../theme/theme.dart';
 import '../../../../utils/date_time_util.dart';
 
